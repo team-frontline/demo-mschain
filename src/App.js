@@ -55,7 +55,7 @@ class App extends React.Component {
         let userConfirm = true;
         if (userConfirm) {
             console.log("Clicked");
-            axios.get('http://localhost:8081/mschain-shopping-cart/catalogue/item/5')
+            axios.get('http://localhost:8081/mschain-shopping-cart/catalogue/item')
                 .then(res => {
                     console.log(res.data);
                     this.setState({states:res.data.state});
