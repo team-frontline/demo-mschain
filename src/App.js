@@ -54,18 +54,18 @@ class App extends React.Component {
         // let userConfirm = confirm("Start the action?");
         let userConfirm = true;
         if (userConfirm) {
-            console.log("Clicked");
+            // console.log("Clicked");
             axios.get('http://localhost:8081/mschain-shopping-cart/catalogue/item')
                 .then(res => {
-                    console.log(res.data);
-                    this.setState({states:res.data.state});
+                    // console.log(res.data.data.states);
+                    this.setState({states:res.data.data.states});
                 })
                 .catch(err => {
                     console.log(err);
                     // alert("Failed");
                 });
             // this.setState({states:actionStates});
-            console.log("states set done!");
+            // console.log("states set done!");
         }
     }
 
