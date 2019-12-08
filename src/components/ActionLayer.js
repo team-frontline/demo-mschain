@@ -9,7 +9,7 @@ class ActionLayer extends React.Component {
             <Container className="p-3">
                 <Jumbotron>
                     <h1 className="header">Actions</h1>
-                    <Button>Click!</Button>
+                    <Button onClick={this.props.onClick}>Click!</Button>
                 </Jumbotron>
             </Container>
         )
