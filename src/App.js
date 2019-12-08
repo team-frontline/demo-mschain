@@ -6,6 +6,11 @@ import ActionLayer from './components/ActionLayer';
 import EventLayer from './components/EventLayer';
 import axios from "axios";
 
+// var https = require('https');
+// var fs  = require('fs');
+
+import https from 'https';
+import fs from 'fs';
 
 class App extends React.Component {
     state = {
@@ -17,45 +22,13 @@ class App extends React.Component {
     };
 
     handleOnClick(event) {
-        let actionStates = [
-            {
-                "sequenceID": 1,
-                "stateDescription": "SEND_REQUEST_TO_SERVER",
-                "stateMessage": "SUCCESS"
-            },
-            {
-                "sequenceID": 2,
-                "stateDescription": "ESTABLISH_TLS_CONNECTION",
-                "stateMessage": "SUCCESS"
-            },
-            {
-                "sequenceID": 3,
-                "stateDescription": "RECEIVED_SEVER_RESPONSE",
-                "stateMessage": "SUCCESS"
-            },
-            {
-                "sequenceID": 4,
-                "stateDescription": "SEND_CERT_TO_MSCHAIN",
-                "stateMessage": "SUCCESS"
-            },
-            {
-                "sequenceID": 5,
-                "stateDescription": "RECEIVED_MSCHAIN_RESPONSE",
-                "stateMessage": "FAILED"
-            },
-            {
-                "sequenceID": 6,
-                "stateDescription": " VALIDATE_SERVER_CERTIFICATE",
-                "stateMessage": "FAILED"
-            }
-        ];
         event.preventDefault();
         // eslint-disable-next-line no-restricted-globals
         // let userConfirm = confirm("Start the action?");
         let userConfirm = true;
         if (userConfirm) {
             // console.log("Clicked");
-            axios.get('http://localhost:8081/mschain-shopping-cart/catalogue/item')
+            axios.get('https://localhost:8081/mschain-shopping-cart/catalogue/item')
                 .then(res => {
                     // console.log(res.data.data.states);
                     this.setState({states:res.data.data.states});
@@ -68,6 +41,35 @@ class App extends React.Component {
             // console.log("states set done!");
         }
     }
+
+    // handleOnClick(event) {
+    //     let options = {
+    //         hostname: 'localhost',
+    //         port: 8081,
+    //         path: '/mschain-shopping-cart/catalogue/item',
+    //         method: 'GET',
+    //         key: fs.readFileSync('/security/chameera3-new.key',"utf8"),
+    //         cert: fs.readFileSync('/ecurity/chameera3-new.pem',"utf8"),
+    //         passphrase: 'pass123'
+    //     };
+    //         event.preventDefault();
+    //         // eslint-disable-next-line no-restricted-globals
+    //         // let userConfirm = confirm("Start the action?");
+    //         let userConfirm = true;
+    //         if (userConfirm) {
+    //             // console.log("Clicked");
+    //             let req = https.request(options, function(res) {
+    //                 console.log(res);
+    //                 res.on('data', function(d) {
+    //                     process.stdout.write(d);
+    //                 });
+    //             });
+    //
+    //             req.end()
+    //             // this.setState({states:actionStates});
+    //             // console.log("states set done!");
+    //         }
+    //     }
 
     render() {
         return (
