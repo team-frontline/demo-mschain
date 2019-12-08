@@ -7,18 +7,18 @@ import EventLayer from './components/EventLayer';
 
 
 class App extends React.Component {
-  render() {
-    return (
-      <SplitterLayout>
-        <div>
-          <ActionLayer />
-        </div>
-        <div>
-          <EventLayer />
-        </div>
-      </SplitterLayout>
-    );
-  }
+    render() {
+        return (
+            <SplitterLayout>
+                <div>
+                    <ActionLayer/>
+                </div>
+                <div>
+                    <EventLayer/>
+                </div>
+            </SplitterLayout>
+        );
+    }
 }
 
 export default App;
