@@ -7,6 +7,42 @@ import EventLayer from './components/EventLayer';
 
 
 class App extends React.Component {
+    state = {
+        data: [],
+        states: [
+            {
+                "sequenceID": 1,
+                "stateDescription": "SEND_REQUEST_TO_SERVER",
+                "stateMessage": "SUCCESS"
+            },
+            {
+                "sequenceID": 2,
+                "stateDescription": "ESTABLISH_TLS_CONNECTION",
+                "stateMessage": "SUCCESS"
+            },
+            {
+                "sequenceID": 3,
+                "stateDescription": "RECEIVED_SEVER_RESPONSE",
+                "stateMessage": "SUCCESS"
+            },
+            {
+                "sequenceID": 4,
+                "stateDescription": "SEND_CERT_TO_MSCHAIN",
+                "stateMessage": "SUCCESS"
+            },
+            {
+                "sequenceID": 5,
+                "stateDescription": "RECEIVED_MSCHAIN_RESPONSE",
+                "stateMessage": "FAILED"
+            },
+            {
+                "sequenceID": 6,
+                "stateDescription": " VALIDATE_SERVER_CERTIFICATE",
+                "stateMessage": "FAILED"
+            }
+        ]
+    };
+
     render() {
         return (
             <SplitterLayout>
